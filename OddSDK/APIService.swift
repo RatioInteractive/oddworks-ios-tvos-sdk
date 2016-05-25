@@ -97,16 +97,22 @@ public class APIService: NSObject {
   /// Currently, unless `.Staging` is set for `serverMode` it will hit the production server
   ///
   var baseURL: String {
-    get {
-      switch serverMode {
-      case .Staging: return "https://device-staging.oddworks.io"
-      case .Beta: return "https://beta.oddworks.io"
-      case .Local: return "http://127.0.0.1:3000"
-      default: return "https://device.oddworks.io"
-      }
-    }
+	  get {
+		  switch serverMode {
+		  case .Staging: return stagingURL
+		  case .Beta: return betaURL
+		  case .Local: return localURL
+		  default: return defaultURL
+		  }
+	  }
   }
-  
+
+  public var stagingURL: String = "https://device-staging.oddworks.io"
+  public var betaURL: String = "https://beta.oddworks.io"
+  public var localURL: String = "http://127.0.0.1:3000"
+  public var defaultURL: String = "https://device.oddworks.io"
+
+	
   /// The device/organization specific authorization token as provided by Odd
   /// must be set before the API can be accessed successfully.
   public var authToken: String = ""
