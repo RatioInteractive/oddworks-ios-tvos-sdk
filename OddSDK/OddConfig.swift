@@ -112,6 +112,7 @@ struct AnalyticsConfiguration {
 @objc public class OddConfig: NSObject {
   var views: jsonObject?
 	public var appMap: jsonObject?
+	public var schedules: jsonObject?
 //  var homeViewId: String?
 //  var splashViewId: String?
 //  var menuViewId: String?
@@ -154,6 +155,10 @@ struct AnalyticsConfiguration {
 		
 		if let appMap = features["app_map"] as? jsonObject {
 			newConfig.appMap = appMap
+		}
+		
+		if let schedules = features["schedules"] as? jsonObject {
+			newConfig.schedules = schedules
 		}
 		
 	} // end features
