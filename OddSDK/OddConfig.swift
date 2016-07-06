@@ -149,8 +149,8 @@ struct AnalyticsConfiguration {
 
       // authentication -> enabled only used for fully paywalled applications
 //        MARK: Authentication
-      if let auth = features["authentication"] as? Dictionary<String, AnyObject> {
-        newConfig.requiresAuthentication = auth["enabled"] as! Bool
+      if let auth = features["authentication"] as? Dictionary<String, AnyObject>, let enabled = auth["enabled"] as? Bool {
+        newConfig.requiresAuthentication = enabled
 //          AuthenticationCredentials.credentialsFromJson(auth)
       }
 		
