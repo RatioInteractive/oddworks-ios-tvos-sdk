@@ -113,7 +113,8 @@ struct AnalyticsConfiguration {
   var views: jsonObject?
 	public var appMap: jsonObject?
 	public var schedules: jsonObject?
-	public var styles: jsonObject? 
+	public var styles: jsonObject?
+	public var liveChannels: jsonObject?
 //  var homeViewId: String?
 //  var splashViewId: String?
 //  var menuViewId: String?
@@ -164,6 +165,10 @@ struct AnalyticsConfiguration {
 		
 		if let styles = features["styles"] as? jsonObject {
 			newConfig.styles = styles
+		}
+		
+		if let liveChannels = features["livechannels"] as? jsonObject {
+			newConfig.liveChannels = liveChannels
 		}
 		
 	} // end features
