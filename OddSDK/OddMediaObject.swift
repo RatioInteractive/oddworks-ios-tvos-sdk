@@ -167,6 +167,9 @@ import UIKit
   
   /// The subtitle for the media object
   public var subtitle: String?
+
+  /// The tag for the media object
+  public var tag: String?
   
   /// The duration of the assets play time. Typically for `OddVideo` types
   public var duration: Int?
@@ -295,6 +298,7 @@ import UIKit
       self.contentRating = attribs["contentRating"] as? String
       self.notes = attribs["description"] as? String
       self.title = attribs["title"] as? String
+      self.tag = attribs["subdescription"] as? String
       self.subtitle = attribs["subtitle"] as? String
       self.urlString = attribs["url"] as? String
       self.duration = attribs["duration"] as? Int
