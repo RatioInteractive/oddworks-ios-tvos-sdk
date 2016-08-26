@@ -117,6 +117,7 @@ struct AnalyticsConfiguration {
 	public var liveChannels: jsonObject?
 	public var tveAuthentication: jsonObject?
 	public var chromecastAppId: String?
+	public var googleAnalyticspPopertyId: String? 
 //  var homeViewId: String?
 //  var splashViewId: String?
 //  var menuViewId: String?
@@ -179,6 +180,11 @@ struct AnalyticsConfiguration {
 		
 		if let chromecast = features["chromecast"] as? jsonObject, let chromecastAppId = chromecast["appId"] as? String {
 			newConfig.chromecastAppId = chromecastAppId
+		}
+		
+		if let googleAnalytics = features["google_analytics"] as? jsonObject,
+			let googleAnalyticspPopertyId = googleAnalytics["propertyId"] as? String {
+			newConfig.googleAnalyticspPopertyId = googleAnalyticspPopertyId
 		}
 		
 	} // end features
