@@ -117,7 +117,8 @@ struct AnalyticsConfiguration {
 	public var liveChannels: jsonObject?
 	public var tveAuthentication: jsonObject?
 	public var chromecastAppId: String?
-	public var googleAnalyticspPopertyId: String? 
+	public var googleAnalyticspPopertyId: String?
+	public var rollbarAccessToken: String?
 //  var homeViewId: String?
 //  var splashViewId: String?
 //  var menuViewId: String?
@@ -185,6 +186,12 @@ struct AnalyticsConfiguration {
 		if let googleAnalytics = features["google_analytics"] as? jsonObject,
 			let googleAnalyticspPopertyId = googleAnalytics["propertyId"] as? String {
 			newConfig.googleAnalyticspPopertyId = googleAnalyticspPopertyId
+		}
+		
+		if let errorCollection = features["error_collection"] as? jsonObject,
+			let rollbar = errorCollection["rollbar"] as? jsonObject,
+			let rollbarAccessToken = rollbar["access_token"] as? String {
+			newConfig.rollbarAccessToken = rollbarAccessToken 
 		}
 		
 	} // end features
