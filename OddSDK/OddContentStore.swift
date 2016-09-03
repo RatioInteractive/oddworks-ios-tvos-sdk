@@ -404,6 +404,7 @@ enum OddFeatureType {
         
         if let error = err {
           errorArray.append(error)
+		  callback(responseArray, errorArray)
           return
         }
         
