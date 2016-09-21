@@ -233,6 +233,7 @@ public class APIService: NSObject {
     //Build & App Specific Headers:
     request.addValue(agentHeader.constructHeader(), forHTTPHeaderField: "x-odd-user-agent")
     request.addValue(authToken, forHTTPHeaderField: "x-access-token")
+    request.addValue(authToken, forHTTPHeaderField: "Authorization")
     
     //Utility Headers:
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
