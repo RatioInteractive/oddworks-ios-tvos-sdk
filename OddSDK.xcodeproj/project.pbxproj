@@ -133,12 +133,6 @@
 		130AA71A1C4EDFA8009784E8 /* OddGateKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddGateKeeper.swift; sourceTree = "<group>"; };
 		134386601C3D574C0042CCC8 /* OddLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddLogger.swift; sourceTree = "<group>"; };
 		134797791C51424800876D39 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		1353FA821C46F0B200B57A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1353FA841C46F0B200B57A83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1353FA871C46F0B200B57A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1353FA891C46F0B200B57A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1353FA8C1C46F0B200B57A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1353FA8E1C46F0B200B57A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		135E2E2F1CCA5C50002A3ADA /* OddSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OddSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		135E2E311CCA5C50002A3ADA /* OddSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddSDKTests.swift; sourceTree = "<group>"; };
 		135E2E331CCA5C50002A3ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,19 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1353FA811C46F0B200B57A83 /* DebugApp */ = {
-			isa = PBXGroup;
-			children = (
-				1353FA821C46F0B200B57A83 /* AppDelegate.swift */,
-				1353FA841C46F0B200B57A83 /* ViewController.swift */,
-				1353FA861C46F0B200B57A83 /* Main.storyboard */,
-				1353FA891C46F0B200B57A83 /* Assets.xcassets */,
-				1353FA8B1C46F0B200B57A83 /* LaunchScreen.storyboard */,
-				1353FA8E1C46F0B200B57A83 /* Info.plist */,
-			);
-			path = DebugApp;
-			sourceTree = "<group>";
-		};
 		135E2E301CCA5C50002A3ADA /* OddSDKTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +213,6 @@
 				13B4D73E1C8A1A040067590B /* README.md */,
 				135E686B1C245FFE00A0A602 /* OddSDK */,
 				13B9F4E31C3AD32B00AC04B1 /* OddSDKtvOS */,
-				1353FA811C46F0B200B57A83 /* DebugApp */,
 				135E2E301CCA5C50002A3ADA /* OddSDKTests */,
 				135E686A1C245FFE00A0A602 /* Products */,
 			);
@@ -646,25 +626,6 @@
 			targetProxy = 135E2E351CCA5C50002A3ADA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1353FA861C46F0B200B57A83 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1353FA871C46F0B200B57A83 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1353FA8B1C46F0B200B57A83 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1353FA8C1C46F0B200B57A83 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		135E2E371CCA5C50002A3ADA /* Debug */ = {
