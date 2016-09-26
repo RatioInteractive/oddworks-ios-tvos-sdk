@@ -66,12 +66,14 @@ public struct OddMediaImageKey {
     static let deviceWidth: CGFloat = OddMediaImageKey.calculateDeviceWidth()
     
     static let imageKeyForDevice: String = OddMediaImageKey.calculateImageKeyForDevice()
-    
+	
+	static let defaultImageKeyForDevice: String = OddMediaImageKey.aspect16x9
+	
     static func calculateImageKeyForDevice() -> String {
         
         let deviceWidth = OddMediaImageKey.deviceWidth
-        
-        if deviceWidth <= 152 {
+		
+		if deviceWidth <= 152 {
             
             return OddMediaImageKey.aspect16x9_w152
             
@@ -371,8 +373,12 @@ public struct OddMediaImageKey {
         if let thumbnailLink = images[imageKey] as? String {
             
             return thumbnailLink
-        }
-        
+			
+		} else if let thumbnailLink = images[OddMediaImageKey.defaultImageKeyForDevice] as? String {
+			
+			return thumbnailLink 
+		}
+			
         return nil
     }
   
