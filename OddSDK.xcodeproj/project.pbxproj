@@ -34,41 +34,10 @@
 /* Begin PBXBuildFile section */
 		130AA71B1C4EDFA8009784E8 /* OddGateKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130AA71A1C4EDFA8009784E8 /* OddGateKeeper.swift */; };
 		130AA71C1C4EDFA8009784E8 /* OddGateKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130AA71A1C4EDFA8009784E8 /* OddGateKeeper.swift */; };
-		130AA71D1C4EDFA8009784E8 /* OddGateKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130AA71A1C4EDFA8009784E8 /* OddGateKeeper.swift */; };
 		134386611C3D574C0042CCC8 /* OddLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134386601C3D574C0042CCC8 /* OddLogger.swift */; };
 		134386621C3D574C0042CCC8 /* OddLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134386601C3D574C0042CCC8 /* OddLogger.swift */; };
 		1347977A1C51424800876D39 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134797791C51424800876D39 /* Keychain.swift */; };
 		1347977B1C51424800876D39 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134797791C51424800876D39 /* Keychain.swift */; };
-		1347977C1C51424800876D39 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134797791C51424800876D39 /* Keychain.swift */; };
-		1353FA831C46F0B200B57A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1353FA821C46F0B200B57A83 /* AppDelegate.swift */; };
-		1353FA851C46F0B200B57A83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1353FA841C46F0B200B57A83 /* ViewController.swift */; };
-		1353FA881C46F0B200B57A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1353FA861C46F0B200B57A83 /* Main.storyboard */; };
-		1353FA8A1C46F0B200B57A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1353FA891C46F0B200B57A83 /* Assets.xcassets */; };
-		1353FA8D1C46F0B200B57A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1353FA8B1C46F0B200B57A83 /* LaunchScreen.storyboard */; };
-		1353FA921C46F10400B57A83 /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A41C24611800A0A602 /* CMTimeExtension.swift */; };
-		1353FA931C46F10400B57A83 /* String+NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A51C24611800A0A602 /* String+NSDate.swift */; };
-		1353FA941C46F10400B57A83 /* NSDate+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A61C24611800A0A602 /* NSDate+String.swift */; };
-		1353FA951C46F10400B57A83 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A71C24611800A0A602 /* NSObject+ClassName.swift */; };
-		1353FA961C46F10400B57A83 /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A81C24611800A0A602 /* UIImage+Gradient.swift */; };
-		1353FA971C46F10400B57A83 /* UIViewController+TitleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A91C24611800A0A602 /* UIViewController+TitleImage.swift */; };
-		1353FA981C46F10400B57A83 /* Double+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68AA1C24611800A0A602 /* Double+Time.swift */; };
-		1353FA991C46F10400B57A83 /* UIApplication+TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68AB1C24611800A0A602 /* UIApplication+TopVC.swift */; };
-		1353FA9A1C46F10400B57A83 /* NSURL+query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68AC1C24611800A0A602 /* NSURL+query.swift */; };
-		1353FA9B1C46F10400B57A83 /* Array+Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68AD1C24611800A0A602 /* Array+Bounds.swift */; };
-		1353FA9E1C46F10400B57A83 /* OddMetricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68A01C2460E900A0A602 /* OddMetricService.swift */; };
-		1353FAA21C46F10400B57A83 /* OddContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68841C2460BA00A0A602 /* OddContentStore.swift */; };
-		1353FAA31C46F10400B57A83 /* OddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68851C2460BA00A0A602 /* OddEvent.swift */; };
-		1353FAA41C46F10400B57A83 /* OddArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68861C2460BA00A0A602 /* OddArticle.swift */; };
-		1353FAA51C46F10400B57A83 /* OddConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68871C2460BA00A0A602 /* OddConfig.swift */; };
-		1353FAA61C46F10400B57A83 /* OddExternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68881C2460BA00A0A602 /* OddExternal.swift */; };
-		1353FAA71C46F10400B57A83 /* OddPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68891C2460BA00A0A602 /* OddPromotion.swift */; };
-		1353FAA81C46F10400B57A83 /* OddVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E688C1C2460BA00A0A602 /* OddVideo.swift */; };
-		1353FAA91C46F10400B57A83 /* OddMediaObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E688D1C2460BA00A0A602 /* OddMediaObjectCollection.swift */; };
-		1353FAAA1C46F10400B57A83 /* OddMediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E688E1C2460BA00A0A602 /* OddMediaObject.swift */; };
-		1353FAAB1C46F10400B57A83 /* OddMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E688F1C2460BA00A0A602 /* OddMenuItems.swift */; };
-		1353FAAD1C46F10400B57A83 /* OddConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DFA21C2876000091BCBA /* OddConstants.swift */; };
-		1353FAAE1C46F10400B57A83 /* OddLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134386601C3D574C0042CCC8 /* OddLogger.swift */; };
-		1353FAB21C46F10400B57A83 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E687B1C24608200A0A602 /* APIService.swift */; };
 		135E2E321CCA5C50002A3ADA /* OddSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E2E311CCA5C50002A3ADA /* OddSDKTests.swift */; };
 		135E2E341CCA5C50002A3ADA /* OddSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135E68691C245FFE00A0A602 /* OddSDK.framework */; };
 		135E2E3A1CCA5EA8002A3ADA /* OddContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135E68841C2460BA00A0A602 /* OddContentStore.swift */; };
@@ -164,13 +133,6 @@
 		130AA71A1C4EDFA8009784E8 /* OddGateKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddGateKeeper.swift; sourceTree = "<group>"; };
 		134386601C3D574C0042CCC8 /* OddLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddLogger.swift; sourceTree = "<group>"; };
 		134797791C51424800876D39 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		1353FA801C46F0B200B57A83 /* DebugApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebugApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1353FA821C46F0B200B57A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1353FA841C46F0B200B57A83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1353FA871C46F0B200B57A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1353FA891C46F0B200B57A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1353FA8C1C46F0B200B57A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1353FA8E1C46F0B200B57A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		135E2E2F1CCA5C50002A3ADA /* OddSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OddSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		135E2E311CCA5C50002A3ADA /* OddSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddSDKTests.swift; sourceTree = "<group>"; };
 		135E2E331CCA5C50002A3ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,13 +172,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1353FA7D1C46F0B200B57A83 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		135E2E2C1CCA5C50002A3ADA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,19 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1353FA811C46F0B200B57A83 /* DebugApp */ = {
-			isa = PBXGroup;
-			children = (
-				1353FA821C46F0B200B57A83 /* AppDelegate.swift */,
-				1353FA841C46F0B200B57A83 /* ViewController.swift */,
-				1353FA861C46F0B200B57A83 /* Main.storyboard */,
-				1353FA891C46F0B200B57A83 /* Assets.xcassets */,
-				1353FA8B1C46F0B200B57A83 /* LaunchScreen.storyboard */,
-				1353FA8E1C46F0B200B57A83 /* Info.plist */,
-			);
-			path = DebugApp;
-			sourceTree = "<group>";
-		};
 		135E2E301CCA5C50002A3ADA /* OddSDKTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +213,6 @@
 				13B4D73E1C8A1A040067590B /* README.md */,
 				135E686B1C245FFE00A0A602 /* OddSDK */,
 				13B9F4E31C3AD32B00AC04B1 /* OddSDKtvOS */,
-				1353FA811C46F0B200B57A83 /* DebugApp */,
 				135E2E301CCA5C50002A3ADA /* OddSDKTests */,
 				135E686A1C245FFE00A0A602 /* Products */,
 			);
@@ -282,7 +223,6 @@
 			children = (
 				135E68691C245FFE00A0A602 /* OddSDK.framework */,
 				13B9F4E21C3AD32B00AC04B1 /* OddSDKtvOS.framework */,
-				1353FA801C46F0B200B57A83 /* DebugApp.app */,
 				135E2E2F1CCA5C50002A3ADA /* OddSDKTests.xctest */,
 			);
 			name = Products;
@@ -388,23 +328,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1353FA7F1C46F0B200B57A83 /* DebugApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1353FA911C46F0B200B57A83 /* Build configuration list for PBXNativeTarget "DebugApp" */;
-			buildPhases = (
-				1353FA7C1C46F0B200B57A83 /* Sources */,
-				1353FA7D1C46F0B200B57A83 /* Frameworks */,
-				1353FA7E1C46F0B200B57A83 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DebugApp;
-			productName = DebugApp;
-			productReference = 1353FA801C46F0B200B57A83 /* DebugApp.app */;
-			productType = "com.apple.product-type.application";
-		};
 		135E2E2E1CCA5C50002A3ADA /* OddSDKTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 135E2E391CCA5C50002A3ADA /* Build configuration list for PBXNativeTarget "OddSDKTests" */;
@@ -471,9 +394,6 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Patrick McConnell";
 				TargetAttributes = {
-					1353FA7F1C46F0B200B57A83 = {
-						CreatedOnToolsVersion = 7.2;
-					};
 					135E2E2E1CCA5C50002A3ADA = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -509,23 +429,12 @@
 				135E68D41C24654D00A0A602 /* Build Framework */,
 				13B9F4E11C3AD32B00AC04B1 /* OddSDKtvOS */,
 				13B9F50A1C3ADAA300AC04B1 /* Build tvOS Framework */,
-				1353FA7F1C46F0B200B57A83 /* DebugApp */,
 				135E2E2E1CCA5C50002A3ADA /* OddSDKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1353FA7E1C46F0B200B57A83 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1353FA8D1C46F0B200B57A83 /* LaunchScreen.storyboard in Resources */,
-				1353FA8A1C46F0B200B57A83 /* Assets.xcassets in Resources */,
-				1353FA881C46F0B200B57A83 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		135E2E2D1CCA5C50002A3ADA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -605,41 +514,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1353FA7C1C46F0B200B57A83 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1353FA921C46F10400B57A83 /* CMTimeExtension.swift in Sources */,
-				1353FA931C46F10400B57A83 /* String+NSDate.swift in Sources */,
-				1353FA941C46F10400B57A83 /* NSDate+String.swift in Sources */,
-				1353FA951C46F10400B57A83 /* NSObject+ClassName.swift in Sources */,
-				1353FA961C46F10400B57A83 /* UIImage+Gradient.swift in Sources */,
-				1353FA971C46F10400B57A83 /* UIViewController+TitleImage.swift in Sources */,
-				1353FA981C46F10400B57A83 /* Double+Time.swift in Sources */,
-				1353FA991C46F10400B57A83 /* UIApplication+TopVC.swift in Sources */,
-				1353FA9A1C46F10400B57A83 /* NSURL+query.swift in Sources */,
-				1353FA9B1C46F10400B57A83 /* Array+Bounds.swift in Sources */,
-				1347977C1C51424800876D39 /* Keychain.swift in Sources */,
-				1353FA9E1C46F10400B57A83 /* OddMetricService.swift in Sources */,
-				1353FAA21C46F10400B57A83 /* OddContentStore.swift in Sources */,
-				1353FAA31C46F10400B57A83 /* OddEvent.swift in Sources */,
-				1353FAA41C46F10400B57A83 /* OddArticle.swift in Sources */,
-				130AA71D1C4EDFA8009784E8 /* OddGateKeeper.swift in Sources */,
-				1353FAA51C46F10400B57A83 /* OddConfig.swift in Sources */,
-				1353FAA61C46F10400B57A83 /* OddExternal.swift in Sources */,
-				1353FAA71C46F10400B57A83 /* OddPromotion.swift in Sources */,
-				1353FAA81C46F10400B57A83 /* OddVideo.swift in Sources */,
-				1353FAA91C46F10400B57A83 /* OddMediaObjectCollection.swift in Sources */,
-				1353FAAA1C46F10400B57A83 /* OddMediaObject.swift in Sources */,
-				1353FAAB1C46F10400B57A83 /* OddMenuItems.swift in Sources */,
-				1353FAAD1C46F10400B57A83 /* OddConstants.swift in Sources */,
-				1353FAAE1C46F10400B57A83 /* OddLogger.swift in Sources */,
-				1353FAB21C46F10400B57A83 /* APIService.swift in Sources */,
-				1353FA851C46F0B200B57A83 /* ViewController.swift in Sources */,
-				1353FA831C46F0B200B57A83 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		135E2E2B1CCA5C50002A3ADA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,48 +627,7 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		1353FA861C46F0B200B57A83 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1353FA871C46F0B200B57A83 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1353FA8B1C46F0B200B57A83 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1353FA8C1C46F0B200B57A83 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		1353FA8F1C46F0B200B57A83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = DebugApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dogboystudios.DebugApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		1353FA901C46F0B200B57A83 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = DebugApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dogboystudios.DebugApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		135E2E371CCA5C50002A3ADA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1159,17 +992,6 @@
 			};
 			name = QA;
 		};
-		A5F7552D1D62615C000B920C /* QA */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = DebugApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dogboystudios.DebugApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = QA;
-		};
 		A5F7552E1D62615C000B920C /* QA */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1186,16 +1008,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1353FA911C46F0B200B57A83 /* Build configuration list for PBXNativeTarget "DebugApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1353FA8F1C46F0B200B57A83 /* Debug */,
-				A5F7552D1D62615C000B920C /* QA */,
-				1353FA901C46F0B200B57A83 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		135E2E391CCA5C50002A3ADA /* Build configuration list for PBXNativeTarget "OddSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

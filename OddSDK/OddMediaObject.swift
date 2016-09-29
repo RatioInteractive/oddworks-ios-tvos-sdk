@@ -72,8 +72,8 @@ public struct OddMediaImageKey {
     static func calculateImageKeyForDevice() -> String {
         
         let deviceWidth = OddMediaImageKey.deviceWidth
-        
-        if deviceWidth <= 152 {
+		
+		if deviceWidth <= 152 {
             
             return OddMediaImageKey.aspect16x9_w152
             

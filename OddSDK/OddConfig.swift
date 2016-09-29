@@ -129,8 +129,8 @@ struct AnalyticsConfiguration {
   class func configFromJson( json : Dictionary<String, AnyObject> ) -> OddConfig? {
     let newConfig = OddConfig()
     guard let data = json["data"] as? Dictionary<String, AnyObject>,
-      attribs = data["attributes"] as? Dictionary<String, AnyObject>,
-      viewJson = attribs["views"] as? Dictionary<String, AnyObject> else {
+      let attribs = data["attributes"] as? Dictionary<String, AnyObject>,
+      let viewJson = attribs["views"] as? Dictionary<String, AnyObject> else {
         return newConfig
     }
     
