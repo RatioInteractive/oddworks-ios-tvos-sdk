@@ -30,7 +30,7 @@ public typealias APICallback = ((AnyObject?, NSError?) -> Void)
 /// included by calling `constructHeader()`
 struct UserAgentHeader {
   let deviceModel = UIDevice.currentDevice().model.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-  let deviceName = UIDevice.currentDevice().name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+  let deviceName = UIDevice.currentDevice().name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())?.stringByReplacingOccurrencesOfString("'", withString: "")
   let buildVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
   let osVersion = UIDevice.currentDevice().systemVersion.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
   let os = UIDevice.currentDevice().systemName.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
