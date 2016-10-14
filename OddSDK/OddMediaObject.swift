@@ -314,6 +314,8 @@ public struct OddMediaImageKey {
   /// application developers responsibitly to parse this additional
   /// data
   public var meta : jsonObject?
+	
+	public var isAuthenticationRequired: Bool = false
   
   /// How long to cache this object for. Based on
   /// HTTP header data.
@@ -433,8 +435,17 @@ public struct OddMediaImageKey {
       }
     }
     
-    self.meta = json["meta"] as? jsonObject
-    
+	if let meta = json["meta"] as? jsonObject {
+		
+		self.meta = meta
+		
+		if let authentication = meta["authentication"] as? jsonObject,
+			let isAuthenticationRequired = authentication["required"] as? Bool {
+			
+			self.isAuthenticationRequired = isAuthenticationRequired 
+		}
+	}
+		
     self.cacheTime = json["cacheTime"] as? Int
     self.lastUpdate = NSDate()
     

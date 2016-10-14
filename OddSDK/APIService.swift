@@ -248,8 +248,8 @@ public class APIService: NSObject {
         request.addValue("iPhone", forHTTPHeaderField: "User-Agent")
       }
     #endif  
-    
-    let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+	
+	let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
       
       if let e = error {
         if e.code < -999 { // NSURLError.NotConnectedToInternet.rawValue {
