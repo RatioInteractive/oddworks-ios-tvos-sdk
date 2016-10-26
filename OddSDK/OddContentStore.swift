@@ -593,12 +593,12 @@ enum OddFeatureType {
     return objects.count > 0 ? objects : nil
   }
   
-  public func searchForTerm(term: String, onResults: ( videos: Array<OddVideo>?, collections: Array<OddMediaObjectCollection>? ) -> Void ) {
+    public func searchForTerm(term: String, offset: Int, onResults: ( videos: Array<OddVideo>?, collections: Array<OddMediaObjectCollection>? ) -> Void ) {
     dispatch_async(dispatch_get_main_queue(), { () -> Void in
       NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: OddConstants.OddStartedSearchNotification, object: nil))
     })
     
-    API.get( nil, url: "search?q=\(term)") { ( response, error ) -> () in
+    API.get( nil, url: "search?limit=20&offset=\(offset)&q=\(term)") { ( response, error ) -> () in
       if let _ = error {
         print("Error fetching search results")
         onResults (videos: nil, collections: nil)
