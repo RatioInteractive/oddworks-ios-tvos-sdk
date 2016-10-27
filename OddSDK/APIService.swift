@@ -283,6 +283,12 @@ public class APIService: NSObject {
           return
         }
         
+        // the server will respond with a 202 for analytics events
+        if res.statusCode == 202 {
+            callback(nil, nil)
+            return
+        }
+        
         if res.statusCode != 200 {
           OddLogger.error("Error, server responded with: \(res.statusCode)" )
           var errorMessage = "No data returned"
