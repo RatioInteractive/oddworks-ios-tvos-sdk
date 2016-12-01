@@ -50,6 +50,87 @@ import UIKit
 //  case External   = "external"
 //}
 
+public struct OddMediaImageKey {
+    
+    static let aspect16x9 = "aspect16x9"
+    static let aspect16x9_w152 = "aspect16x9_w152"
+    static let aspect16x9_w390 = "aspect16x9_w390"
+    static let aspect16x9_w548 = "aspect16x9_w548"
+    static let aspect16x9_w768 = "aspect16x9_w768"
+    static let aspect16x9_w1152 = "aspect16x9_w1152"
+    static let aspect16x9_w1536 = "aspect16x9_w1536"
+    static let aspect16x9_w1920 = "aspect16x9_w1920"
+    static let aspect16x9_w2304 = "aspect16x9_w2304"
+    static let aspect16x9_w3072 = "aspect16x9_w3072"
+    
+    static let deviceWidth: CGFloat = OddMediaImageKey.calculateDeviceWidth()
+    
+    static let imageKeyForDevice: String = OddMediaImageKey.calculateImageKeyForDevice()
+	
+	static let defaultImageKeyForDevice: String = OddMediaImageKey.aspect16x9
+	
+    static func calculateImageKeyForDevice() -> String {
+        
+        let deviceWidth = OddMediaImageKey.deviceWidth
+		
+		if deviceWidth <= 152 {
+            
+            return OddMediaImageKey.aspect16x9_w152
+            
+        } else if deviceWidth <= 390 {
+            
+            return OddMediaImageKey.aspect16x9_w390
+            
+        } else if deviceWidth <= 548 {
+            
+            return OddMediaImageKey.aspect16x9_w548
+            
+        } else if deviceWidth <= 768 {
+            
+            return OddMediaImageKey.aspect16x9_w768
+            
+        } else if deviceWidth <= 1152 {
+            
+            return OddMediaImageKey.aspect16x9_w1152
+            
+        } else if deviceWidth <= 1536 {
+            
+            return OddMediaImageKey.aspect16x9_w1536
+            
+        } else if deviceWidth <= 1920 {
+            
+            return OddMediaImageKey.aspect16x9_w1920
+            
+        } else if deviceWidth <= 2304 {
+            
+            return OddMediaImageKey.aspect16x9_w2304
+            
+        } else if deviceWidth <= 3072 {
+            
+            return OddMediaImageKey.aspect16x9_w3072
+        }
+        
+        return OddMediaImageKey.aspect16x9
+    }
+    
+    static func calculateDeviceWidth() -> CGFloat {
+        
+        #if os(iOS)
+        let screenOrientation = UIApplication.sharedApplication().statusBarOrientation
+        let scale = UIScreen.mainScreen().scale
+        
+        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+            return UIScreen.mainScreen().bounds.size.width * scale
+        } else {
+            return UIScreen.mainScreen().bounds.size.height * scale
+        }
+        #elseif os(tvOS)
+        return UIScreen.mainScreen().bounds.size.width
+        #endif
+    }
+    
+}
+
 // while we would prefer this was a string type
 // for interoperability with ObjC this must be
 // an Int type with a helper to convert from string
@@ -167,6 +248,9 @@ import UIKit
   
   /// The subtitle for the media object
   public var subtitle: String?
+
+  /// The tag for the media object
+  public var tag: String?
   
   /// The duration of the assets play time. Typically for `OddVideo` types
   public var duration: Int?
@@ -230,6 +314,8 @@ import UIKit
   /// application developers responsibitly to parse this additional
   /// data
   public var meta : jsonObject?
+	
+	public var isAuthenticationRequired: Bool = false
   
   /// How long to cache this object for. Based on
   /// HTTP header data.
@@ -282,12 +368,26 @@ import UIKit
     self.downloadDate = decoder.decodeObjectForKey("downloadDate") as? NSDate
   }
   
-  
+    func parseThumbnailLink(from images: jsonObject) -> String? {
+        
+        let imageKey = OddMediaImageKey.imageKeyForDevice
+        
+        if let thumbnailLink = images[imageKey] as? String {
+            
+            return thumbnailLink
+			
+		} else if let thumbnailLink = images[OddMediaImageKey.defaultImageKeyForDevice] as? String {
+			
+			return thumbnailLink
+		}
+		
+        return nil
+    }
   
   func configureWithJson(json: jsonObject) {
     self.id = json["id"] as? String
     if let links = json["links"] as? jsonObject,
-      selfLink = links["self"] as? String {
+      let selfLink = links["self"] as? String {
         self.link = selfLink
     }
     
@@ -295,14 +395,16 @@ import UIKit
       self.contentRating = attribs["contentRating"] as? String
       self.notes = attribs["description"] as? String
       self.title = attribs["title"] as? String
+      self.tag = attribs["subdescription"] as? String
       self.subtitle = attribs["subtitle"] as? String
       self.urlString = attribs["url"] as? String
       self.duration = attribs["duration"] as? Int
       self.releaseDate = attribs["releaseDate"] as? String
-      if let images = attribs["images"] as? jsonObject {
-        self.thumbnailLink = images["aspect16x9"] as? String
+      if let images = attribs["images"] as? jsonObject,
+        let thumbnailLink = self.parseThumbnailLink(from: images) {
+        self.thumbnailLink = thumbnailLink
       }
-      if let ads = attribs["ads"] as? jsonObject, id = ads["assetId"] as? String {
+      if let ads = attribs["ads"] as? jsonObject, let id = ads["assetId"] as? String {
         self.assetId = id
       }
     }
@@ -313,9 +415,9 @@ import UIKit
         guard let value = value as? jsonObject else { return }
         
         if let data = value["data"] as? jsonObject,
-            id = data["id"] as? String,
-            type = data["type"] as? String,
-            kind = OddMediaObjectType.fromString( type ) {
+            let id = data["id"] as? String,
+            let type = data["type"] as? String,
+            let kind = OddMediaObjectType.fromString( type ) {
           let newRelationship = OddRelationship(id: id, mediaObjectType: kind)
           let newNode = OddRelationshipNode(single: newRelationship, multiple: nil)
           self.relationshipNodes[key] = newNode
@@ -323,8 +425,8 @@ import UIKit
           var relationships = Array<OddRelationship>()
           data.forEach({ (dict) in
             guard let id = dict["id"] as? String,
-              type = dict["type"] as? String,
-              kind = OddMediaObjectType.fromString(type) else { return }
+              let type = dict["type"] as? String,
+              let kind = OddMediaObjectType.fromString(type) else { return }
             relationships.append(OddRelationship(id: id, mediaObjectType: kind))
           })
           let newNode = OddRelationshipNode(single: nil, multiple: relationships)
@@ -333,8 +435,17 @@ import UIKit
       }
     }
     
-    self.meta = json["meta"] as? jsonObject
-    
+	if let meta = json["meta"] as? jsonObject {
+		
+		self.meta = meta
+		
+		if let authentication = meta["authentication"] as? jsonObject,
+			let isAuthenticationRequired = authentication["required"] as? Bool {
+			
+			self.isAuthenticationRequired = isAuthenticationRequired 
+		}
+	}
+		
     self.cacheTime = json["cacheTime"] as? Int
     self.lastUpdate = NSDate()
     

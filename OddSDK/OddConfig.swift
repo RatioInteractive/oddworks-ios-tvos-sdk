@@ -111,6 +111,14 @@ struct AnalyticsConfiguration {
 
 @objc public class OddConfig: NSObject {
   var views: jsonObject?
+	public var appMap: jsonObject?
+	public var schedules: jsonObject?
+	public var styles: jsonObject?
+	public var liveChannels: jsonObject?
+	public var tveAuthentication: jsonObject?
+	public var chromecastAppId: String?
+	public var googleAnalyticspPopertyId: String?
+	public var rollbarAccessToken: String?
 //  var homeViewId: String?
 //  var splashViewId: String?
 //  var menuViewId: String?
@@ -121,8 +129,8 @@ struct AnalyticsConfiguration {
   class func configFromJson( json : Dictionary<String, AnyObject> ) -> OddConfig? {
     let newConfig = OddConfig()
     guard let data = json["data"] as? Dictionary<String, AnyObject>,
-      attribs = data["attributes"] as? Dictionary<String, AnyObject>,
-      viewJson = attribs["views"] as? Dictionary<String, AnyObject> else {
+      let attribs = data["attributes"] as? Dictionary<String, AnyObject>,
+      let viewJson = attribs["views"] as? Dictionary<String, AnyObject> else {
         return newConfig
     }
     
@@ -146,12 +154,47 @@ struct AnalyticsConfiguration {
 
       // authentication -> enabled only used for fully paywalled applications
 //        MARK: Authentication
-      if let auth = features["authentication"] as? Dictionary<String, AnyObject> {
-        newConfig.requiresAuthentication = auth["enabled"] as! Bool
+      if let auth = features["authentication"] as? Dictionary<String, AnyObject>, let enabled = auth["enabled"] as? Bool {
+        newConfig.requiresAuthentication = enabled
 //          AuthenticationCredentials.credentialsFromJson(auth)
       }
-    
-    } // end features
+		
+		if let appMap = features["app_map"] as? jsonObject {
+			newConfig.appMap = appMap
+		}
+		
+		if let schedules = features["schedules"] as? jsonObject {
+			newConfig.schedules = schedules
+		}
+		
+		if let styles = features["styles"] as? jsonObject {
+			newConfig.styles = styles
+		}
+		
+		if let liveChannels = features["livechannels"] as? jsonObject {
+			newConfig.liveChannels = liveChannels
+		}
+		
+		if let tveAuthentication = features["tve_authentication"] as? jsonObject {
+			newConfig.tveAuthentication = tveAuthentication
+		}
+		
+		if let chromecast = features["chromecast"] as? jsonObject, let chromecastAppId = chromecast["appId"] as? String {
+			newConfig.chromecastAppId = chromecastAppId
+		}
+		
+		if let googleAnalytics = features["google_analytics"] as? jsonObject,
+			let googleAnalyticspPopertyId = googleAnalytics["propertyId"] as? String {
+			newConfig.googleAnalyticspPopertyId = googleAnalyticspPopertyId
+		}
+		
+		if let errorCollection = features["error_collection"] as? jsonObject,
+			let rollbar = errorCollection["rollbar"] as? jsonObject,
+			let rollbarAccessToken = rollbar["access_token"] as? String {
+			newConfig.rollbarAccessToken = rollbarAccessToken 
+		}
+		
+	} // end features
     
     return newConfig
   }

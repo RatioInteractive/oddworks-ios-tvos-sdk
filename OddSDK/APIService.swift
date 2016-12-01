@@ -30,7 +30,7 @@ public typealias APICallback = ((AnyObject?, NSError?) -> Void)
 /// included by calling `constructHeader()`
 struct UserAgentHeader {
   let deviceModel = UIDevice.currentDevice().model.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-  let deviceName = UIDevice.currentDevice().name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+  let deviceName = UIDevice.currentDevice().name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())?.stringByReplacingOccurrencesOfString("'", withString: "")
   let buildVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
   let osVersion = UIDevice.currentDevice().systemVersion.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
   let os = UIDevice.currentDevice().systemName.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
@@ -97,16 +97,22 @@ public class APIService: NSObject {
   /// Currently, unless `.Staging` is set for `serverMode` it will hit the production server
   ///
   var baseURL: String {
-    get {
-      switch serverMode {
-      case .Staging: return "https://device-staging.oddworks.io"
-      case .Beta: return "https://beta.oddworks.io"
-      case .Local: return "http://127.0.0.1:3000"
-      default: return "https://device.oddworks.io"
-      }
-    }
+	  get {
+		  switch serverMode {
+		  case .Staging: return stagingURL
+		  case .Beta: return betaURL
+		  case .Local: return localURL
+		  default: return defaultURL
+		  }
+	  }
   }
-  
+
+  public var stagingURL: String = "https://device-staging.oddworks.io"
+  public var betaURL: String = "https://beta.oddworks.io"
+  public var localURL: String = "http://127.0.0.1:3000"
+  public var defaultURL: String = "https://device.oddworks.io"
+
+	
   /// The device/organization specific authorization token as provided by Odd
   /// must be set before the API can be accessed successfully.
   public var authToken: String = ""
@@ -242,8 +248,8 @@ public class APIService: NSObject {
         request.addValue("iPhone", forHTTPHeaderField: "User-Agent")
       }
     #endif  
-    
-    let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+	
+	let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
       
       if let e = error {
         if e.code < -999 { // NSURLError.NotConnectedToInternet.rawValue {
@@ -275,6 +281,12 @@ public class APIService: NSObject {
           OddLogger.info("Server responded with \(res.statusCode). Object created.")
           callback(nil, nil)
           return
+        }
+        
+        // the server will respond with a 202 for analytics events
+        if res.statusCode == 202 {
+            callback(nil, nil)
+            return
         }
         
         if res.statusCode != 200 {
